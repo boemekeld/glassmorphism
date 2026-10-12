@@ -32,4 +32,8 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_ENV, name.slice(11) + '<<' + end + '\n' + value + '\n' + end + '\n');
           }
           NODE
+      - name: Node for the deploy (wrangler needs 22+)
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
       - uses: bohr-io/deploy-action@v1
